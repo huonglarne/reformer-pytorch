@@ -1,3 +1,19 @@
+## Run with Moreh
+
+    conda create -n reformer python=3.8
+
+    pip install reformer_pytorch
+    update-moreh --force
+
+
+Simple inference and training code
+
+    python run.py
+
+Error
+
+    python dummy.py
+
 ## Reformer, the Efficient Transformer, in Pytorch
 [![PyPI version](https://badge.fury.io/py/reformer-pytorch.svg)](https://badge.fury.io/py/reformer-pytorch)
 

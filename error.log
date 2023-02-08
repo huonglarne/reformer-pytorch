@@ -1,0 +1,30 @@
+(/nas/huong/env/reformer) ubuntu@moreh-test-vm09:/nas/huong/projects/reformer-pytorch$ python run.py
+[2023-02-08 12:24:42.322] [info] Requesting resources for KT AI Accelerator from the server...
+[2023-02-08 12:24:43.339] [info] Initializing the worker daemon for KT AI Accelerator
+[2023-02-08 12:24:44.042] [info] [1/1] Connecting to resources on the server (192.168.110.16:24172)...
+[2023-02-08 12:24:44.056] [info] Establishing links to the resources...
+[2023-02-08 12:24:44.074] [info] KT AI Accelerator is ready to use.
+Traceback (most recent call last):
+  File "run.py", line 97, in <module>
+    loss = enc_dec(train_seq_in, train_seq_out, return_loss = True, enc_input_mask = input_mask)
+  File "/nas/huong/env/reformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/nas/huong/projects/reformer-pytorch/reformer_pytorch/reformer_enc_dec.py", line 67, in forward
+    enc_keys = self.enc(seq_in, **enc_kwargs)
+  File "/nas/huong/env/reformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/nas/huong/projects/reformer-pytorch/reformer_pytorch/generative_tools.py", line 83, in forward
+    return self.net(x, **kwargs)
+  File "/nas/huong/env/reformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/nas/huong/projects/reformer-pytorch/reformer_pytorch/autopadder.py", line 46, in forward
+    new_mask = F.pad(input_mask, (0, x.shape[1] - input_mask.shape[1]), value=False)
+  File "/nas/huong/env/reformer/lib/python3.8/site-packages/moreh/driver/pytorch/torch/wrapper/moreh_wrapper.py", line 113, in wrapper
+    raise instance
+  File "/nas/huong/env/reformer/lib/python3.8/site-packages/moreh/driver/pytorch/torch/wrapper/moreh_wrapper.py", line 54, in wrapper
+    return moreh_function(
+  File "/nas/huong/env/reformer/lib/python3.8/site-packages/moreh/driver/pytorch/torch/nn/functional.py", line 3948, in pad
+    raise TypeError('unsupported type: {}'.format(type(input).__name__))
+TypeError: unsupported type: Tensor
+(/nas/huong/env/reformer) ubuntu@moreh-test-vm09:/nas/huong/projects/reformer-pytorch$ tmux capture-pane -pS -100 > log
+
