@@ -1,7 +1,9 @@
 import torch
 import torch.nn.functional as F
 
-input_mask = torch.load("input_mask.pt")
+input_mask = torch.load("input_mask_cpu.pt")
+
+input_mask = input_mask.cuda()
 
 x_shape = torch.Size([1, 4096])
 
